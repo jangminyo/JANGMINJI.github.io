@@ -1,56 +1,66 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>장민지 | 국악 교육 포트폴리오</title>
+  <title>Minji Jang | Korean Traditional Music Educator</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: "Pretendard", "Noto Sans KR", sans-serif;
-      color: #2f2a24;
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
       background: #fbf7ef;
-      line-height: 1.6;
+      color: #2f2a24;
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 10;
       padding: 22px 8%;
+      box-sizing: border-box;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(251, 247, 239, 0.86);
+      background: rgba(251, 247, 239, 0.9);
       backdrop-filter: blur(10px);
+      z-index: 10;
     }
 
     .logo {
-      font-size: 20px;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      font-size: 20px;
     }
 
-    nav a {
-      margin-left: 28px;
-      text-decoration: none;
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a, .lang-btn {
       color: #4d443a;
+      text-decoration: none;
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .lang-btn {
+      border: 1px solid #b9a58b;
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: #fffaf4;
     }
 
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 120px 8% 60px;
-      gap: 64px;
+      gap: 60px;
+      padding: 120px 8% 70px;
+      box-sizing: border-box;
     }
 
     .hero-text {
@@ -65,15 +75,15 @@
       border-radius: 999px;
       color: #8a6324;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       background: #fffaf0;
     }
 
     h1 {
       font-size: clamp(42px, 6vw, 76px);
       line-height: 1.12;
-      letter-spacing: -0.06em;
-      margin-bottom: 24px;
+      letter-spacing: -0.05em;
+      margin: 0 0 24px;
     }
 
     h1 span {
@@ -93,6 +103,7 @@
       font-size: 17px;
       color: #766a5f;
       margin-bottom: 36px;
+      line-height: 1.7;
       word-break: keep-all;
     }
 
@@ -103,32 +114,22 @@
     }
 
     .btn {
-      display: inline-block;
       padding: 14px 24px;
       border-radius: 999px;
       text-decoration: none;
       font-size: 15px;
       font-weight: 700;
-      transition: 0.25s;
     }
 
     .btn-primary {
       background: #9b6a2f;
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #7c5223;
+      color: white;
     }
 
     .btn-secondary {
       border: 1px solid #b9a58b;
       color: #4d443a;
       background: #fffaf4;
-    }
-
-    .btn-secondary:hover {
-      background: #f1e6d6;
     }
 
     .hero-image {
@@ -139,75 +140,42 @@
         linear-gradient(rgba(60, 40, 20, 0.08), rgba(60, 40, 20, 0.2)),
         url("main-profile.jpg") center/cover no-repeat;
       box-shadow: 0 30px 80px rgba(80, 54, 25, 0.18);
-      position: relative;
-      overflow: hidden;
     }
 
-    .hero-image::after {
-      content: "Korean Traditional Music Education";
-      position: absolute;
-      left: 28px;
-      bottom: 28px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255, 250, 240, 0.86);
-      color: #7c5223;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .info-strip {
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       padding: 0 8% 80px;
     }
 
-    .info-card {
+    .card {
       padding: 26px;
       border-radius: 24px;
       background: #fffaf4;
       border: 1px solid #eadcc8;
     }
 
-    .info-card strong {
-      display: block;
-      margin-bottom: 8px;
+    .card h3 {
+      margin: 0 0 8px;
       font-size: 18px;
-      color: #3d342c;
     }
 
-    .info-card p {
-      font-size: 15px;
+    .card p {
+      margin: 0;
       color: #766a5f;
-      word-break: keep-all;
+      line-height: 1.6;
+      font-size: 15px;
     }
 
     @media (max-width: 900px) {
-      header {
-        padding: 18px 6%;
-      }
-
-      nav {
+      nav a {
         display: none;
       }
 
       .hero {
         flex-direction: column;
         padding: 110px 6% 50px;
-        gap: 36px;
-      }
-
-      .hero-text {
-        width: 100%;
-      }
-
-      .subtitle {
-        font-size: 19px;
-      }
-
-      .description {
-        font-size: 16px;
       }
 
       .hero-image {
@@ -215,94 +183,109 @@
         min-height: 420px;
       }
 
-      .info-strip {
+      .cards {
         grid-template-columns: 1fr;
         padding: 0 6% 60px;
       }
     }
-
-    @media (max-width: 520px) {
-      .hero {
-        padding-top: 96px;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      .buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        text-align: center;
-        width: 100%;
-      }
-
-      .hero-image {
-        min-height: 360px;
-        border-radius: 28px;
-      }
-    }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-    <div class="logo">장민지</div>
+    <div class="logo" data-en="Minji Jang" data-ko="장민지">Minji Jang</div>
+
     <nav>
-      <a href="#about">소개</a>
-      <a href="#education">교육</a>
-      <a href="#portfolio">활동</a>
-      <a href="#contact">문의</a>
+      <a href="#about" data-en="About" data-ko="소개">About</a>
+      <a href="#education" data-en="Education" data-ko="교육">Education</a>
+      <a href="#portfolio" data-en="Portfolio" data-ko="활동">Portfolio</a>
+      <a href="#contact" data-en="Contact" data-ko="문의">Contact</a>
+      <button class="lang-btn" onclick="toggleLang()">한국어</button>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-text">
-        <div class="eyebrow">국악 교육 · 경기민요 · 전통예술 콘텐츠</div>
+        <div class="eyebrow"
+          data-en="Korean Traditional Music · Education · Gyeonggi Minyo"
+          data-ko="국악 · 교육 · 경기민요">
+          Korean Traditional Music · Education · Gyeonggi Minyo
+        </div>
 
-        <h1>
-          전통의 소리를<br />
-          오늘의 <span>배움</span>으로
+        <h1
+          data-en='Bringing Korean traditional sound into <span>today’s learning</span>'
+          data-ko='전통의 소리를<br />오늘의 <span>배움</span>으로'>
+          Bringing Korean traditional sound into <span>today’s learning</span>
         </h1>
 
-        <p class="subtitle">
-          국악 교육자 장민지는 우리 소리의 아름다움을 쉽고 따뜻하게 전합니다.
+        <p class="subtitle"
+          data-en="Minji Jang is a Korean traditional music educator who shares the beauty of Korean sound with clarity, warmth, and depth."
+          data-ko="국악 교육자 장민지는 우리 소리의 아름다움을 쉽고 따뜻하게 전합니다.">
+          Minji Jang is a Korean traditional music educator who shares the beauty of Korean sound with clarity, warmth, and depth.
         </p>
 
-        <p class="description">
-          아이들부터 성인 학습자까지, 국악을 처음 접하는 사람도 자연스럽게 이해하고 즐길 수 있도록
-          경기민요, 전통음악, 국악 기반 교육 콘텐츠를 기획하고 지도합니다.
+        <p class="description"
+          data-en="Through Gyeonggi Minyo, traditional vocal music, and arts-based education, she creates approachable learning experiences for children, students, and adult learners."
+          data-ko="경기민요와 전통 성악, 문화예술 교육을 바탕으로 아이들부터 성인 학습자까지 누구나 국악을 자연스럽게 이해하고 즐길 수 있도록 교육합니다.">
+          Through Gyeonggi Minyo, traditional vocal music, and arts-based education, she creates approachable learning experiences for children, students, and adult learners.
         </p>
 
         <div class="buttons">
-          <a href="#portfolio" class="btn btn-primary">활동 보기</a>
-          <a href="#contact" class="btn btn-secondary">교육 문의하기</a>
+          <a href="#portfolio" class="btn btn-primary"
+            data-en="View Portfolio"
+            data-ko="활동 보기">View Portfolio</a>
+
+          <a href="#contact" class="btn btn-secondary"
+            data-en="Contact for Education"
+            data-ko="교육 문의하기">Contact for Education</a>
         </div>
       </div>
 
       <div class="hero-image"></div>
     </section>
 
-    <section class="info-strip">
-      <div class="info-card">
-        <strong>국악 교육</strong>
-        <p>학교, 기관, 문화예술 교육 현장에서 대상별 맞춤형 국악 수업을 진행합니다.</p>
+    <section class="cards">
+      <div class="card">
+        <h3 data-en="Korean Music Education" data-ko="국악 교육">Korean Music Education</h3>
+        <p data-en="Customized classes for schools, institutions, and cultural arts programs."
+           data-ko="학교, 기관, 문화예술 교육 현장에서 대상별 맞춤형 국악 수업을 진행합니다.">
+          Customized classes for schools, institutions, and cultural arts programs.
+        </p>
       </div>
 
-      <div class="info-card">
-        <strong>경기민요</strong>
-        <p>전통 성악의 깊이를 바탕으로 우리 소리의 발성, 장단, 표현을 교육합니다.</p>
+      <div class="card">
+        <h3 data-en="Gyeonggi Minyo" data-ko="경기민요">Gyeonggi Minyo</h3>
+        <p data-en="Teaching vocal expression, rhythm, breathing, and the emotional depth of Korean folk songs."
+           data-ko="전통 성악의 발성, 장단, 호흡, 표현을 바탕으로 우리 소리의 깊이를 전합니다.">
+          Teaching vocal expression, rhythm, breathing, and the emotional depth of Korean folk songs.
+        </p>
       </div>
 
-      <div class="info-card">
-        <strong>콘텐츠 기획</strong>
-        <p>공연, 강의, 영상, 교육자료 등 국악을 현대적으로 전달하는 콘텐츠를 만듭니다.</p>
+      <div class="card">
+        <h3 data-en="Content & Performance" data-ko="콘텐츠 · 공연">Content & Performance</h3>
+        <p data-en="Creating lectures, performances, videos, and educational materials rooted in Korean tradition."
+           data-ko="공연, 강의, 영상, 교육자료 등 국악을 현대적으로 전달하는 콘텐츠를 만듭니다.">
+          Creating lectures, performances, videos, and educational materials rooted in Korean tradition.
+        </p>
       </div>
     </section>
   </main>
 
+  <script>
+    let currentLang = "en";
+
+    function toggleLang() {
+      currentLang = currentLang === "en" ? "ko" : "en";
+      document.documentElement.lang = currentLang;
+
+      document.querySelectorAll("[data-en]").forEach(el => {
+        el.innerHTML = el.dataset[currentLang];
+      });
+
+      document.querySelector(".lang-btn").innerText =
+        currentLang === "en" ? "한국어" : "English";
+    }
+  </script>
 </body>
 </html>
