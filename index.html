@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>장민지 | 국악 교육 포트폴리오</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      color: #2f2a24;
+      background: #fbf7ef;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(251, 247, 239, 0.86);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    nav a {
+      margin-left: 28px;
+      text-decoration: none;
+      color: #4d443a;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 8% 60px;
+      gap: 64px;
+    }
+
+    .hero-text {
+      flex: 1.1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid #c8a96a;
+      border-radius: 999px;
+      color: #8a6324;
+      font-size: 14px;
+      font-weight: 600;
+      background: #fffaf0;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.12;
+      letter-spacing: -0.06em;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: #9b6a2f;
+    }
+
+    .subtitle {
+      max-width: 640px;
+      font-size: 21px;
+      color: #554b41;
+      margin-bottom: 18px;
+      word-break: keep-all;
+    }
+
+    .description {
+      max-width: 620px;
+      font-size: 17px;
+      color: #766a5f;
+      margin-bottom: 36px;
+      word-break: keep-all;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: #9b6a2f;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #7c5223;
+    }
+
+    .btn-secondary {
+      border: 1px solid #b9a58b;
+      color: #4d443a;
+      background: #fffaf4;
+    }
+
+    .btn-secondary:hover {
+      background: #f1e6d6;
+    }
+
+    .hero-image {
+      flex: 0.9;
+      min-height: 520px;
+      border-radius: 36px;
+      background:
+        linear-gradient(rgba(60, 40, 20, 0.08), rgba(60, 40, 20, 0.2)),
+        url("main-profile.jpg") center/cover no-repeat;
+      box-shadow: 0 30px 80px rgba(80, 54, 25, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image::after {
+      content: "Korean Traditional Music Education";
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.86);
+      color: #7c5223;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 0 8% 80px;
+    }
+
+    .info-card {
+      padding: 26px;
+      border-radius: 24px;
+      background: #fffaf4;
+      border: 1px solid #eadcc8;
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #3d342c;
+    }
+
+    .info-card p {
+      font-size: 15px;
+      color: #766a5f;
+      word-break: keep-all;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 18px 6%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding: 110px 6% 50px;
+        gap: 36px;
+      }
+
+      .hero-text {
+        width: 100%;
+      }
+
+      .subtitle {
+        font-size: 19px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .hero-image {
+        width: 100%;
+        min-height: 420px;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+        padding: 0 6% 60px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        padding-top: 96px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+        width: 100%;
+      }
+
+      .hero-image {
+        min-height: 360px;
+        border-radius: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">장민지</div>
+    <nav>
+      <a href="#about">소개</a>
+      <a href="#education">교육</a>
+      <a href="#portfolio">활동</a>
+      <a href="#contact">문의</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <div class="eyebrow">국악 교육 · 경기민요 · 전통예술 콘텐츠</div>
+
+        <h1>
+          전통의 소리를<br />
+          오늘의 <span>배움</span>으로
+        </h1>
+
+        <p class="subtitle">
+          국악 교육자 장민지는 우리 소리의 아름다움을 쉽고 따뜻하게 전합니다.
+        </p>
+
+        <p class="description">
+          아이들부터 성인 학습자까지, 국악을 처음 접하는 사람도 자연스럽게 이해하고 즐길 수 있도록
+          경기민요, 전통음악, 국악 기반 교육 콘텐츠를 기획하고 지도합니다.
+        </p>
+
+        <div class="buttons">
+          <a href="#portfolio" class="btn btn-primary">활동 보기</a>
+          <a href="#contact" class="btn btn-secondary">교육 문의하기</a>
+        </div>
+      </div>
+
+      <div class="hero-image"></div>
+    </section>
+
+    <section class="info-strip">
+      <div class="info-card">
+        <strong>국악 교육</strong>
+        <p>학교, 기관, 문화예술 교육 현장에서 대상별 맞춤형 국악 수업을 진행합니다.</p>
+      </div>
+
+      <div class="info-card">
+        <strong>경기민요</strong>
+        <p>전통 성악의 깊이를 바탕으로 우리 소리의 발성, 장단, 표현을 교육합니다.</p>
+      </div>
+
+      <div class="info-card">
+        <strong>콘텐츠 기획</strong>
+        <p>공연, 강의, 영상, 교육자료 등 국악을 현대적으로 전달하는 콘텐츠를 만듭니다.</p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
